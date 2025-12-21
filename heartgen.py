@@ -10,8 +10,8 @@ def gen_heart(radius: int, text: str):
     
     # Starting triangle reduction value
     # Increase to make the bottom of the heart smaller
-    # Default is 1
-    reduction = 1
+    # Default is 4
+    reduction = 4
     
     # The value with which to increment the reduction
     # Increase this to round out the bottom of the heart
@@ -109,7 +109,7 @@ def gen_heart(radius: int, text: str):
             for j in range(len(circleMatrixLeft[i])):
                 # Decide the width of the corner based on
                 #   f(x) = floor(2 - (0.5 + x * 0.075^2) * x)
-                if j > math.trunc((2 - (0.5 + radius * 0.075**2)) * radius):
+                if j > math.trunc((2 - (((0.1 * radius ** 0.05) + radius / (7 * radius)) + radius * 0.025**2)) * radius):
                     circleMatrixLeft[i][j] = "#"
 
     # Fill in the bottom left corner of the right circle
@@ -118,7 +118,7 @@ def gen_heart(radius: int, text: str):
             for j in range(len(circleMatrixRight[i])):
                 # Since this time we're expanding the corner to the right,
                 #   the minus turns into a plus
-                if j < math.trunc((2 + (0.5 + radius * 0.075**2)) * radius):
+                if j < math.trunc((2 + (((0.1 * radius ** 0.05) + radius / (7 * radius)) + radius * 0.025**2)) * radius):
                     circleMatrixRight[i][j] = text[characterIndex]
                     
     # Concatenate the left and right circle
