@@ -108,7 +108,7 @@ def gen_heart(radius: int, text: str):
         if i > radius:
             for j in range(len(circleMatrixLeft[i])):
                 # Decide the width of the corner based on
-                #   f(x) = floor(2 - (0.5 + x * 0.075^2) * x)
+                #   f(x) = floor((2 - (((0.1 * x^0.05) + x / (7 * x)) + x * 0.025**2)) * x)
                 if j > math.trunc((2 - (((0.1 * radius ** 0.05) + radius / (7 * radius)) + radius * 0.025**2)) * radius):
                     circleMatrixLeft[i][j] = "#"
 
