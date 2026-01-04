@@ -10,7 +10,7 @@ def gen_heart(radius: int, text: str):
     
     # Starting triangle reduction value
     # Increase to make the bottom of the heart smaller
-    # Default is 4
+    # Default is 0
     reduction = 0
     
     # The value with which to increment the reduction
@@ -20,7 +20,7 @@ def gen_heart(radius: int, text: str):
     
     # The reduction modifying function
     # Change this function to change the curvature of the bottom of the heart
-    # Default is round(reduct * (0.975 * ((radius - 0.2) / radius)))
+    # Default is round(reduct ** 0.9975)
     def reductionFunction(reduct: int):
         return round(reduct ** 0.9975)
     
@@ -144,7 +144,7 @@ def gen_heart(radius: int, text: str):
         triangle.append([])
         
         # Triangle gets offset by one character for bigger hearts
-        # This is a workaround until I find the reason
+        # This is because of the added distance between circles for smaller triangles
         triangleShift = 1 if radius > 4 else 0
         
         # Add whitespaces according to radius and reduction
