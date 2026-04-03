@@ -4,7 +4,7 @@ def gen_heart(radius: int, text: str):
     
     # radius - The radius of the circles inside the heart,
     #   this is roughly a third of the heart's height,
-    #   or an eigth of the heart's width
+    #   or a quarter of the heart's width
     
     # text - The text with which the heart is filled
     
